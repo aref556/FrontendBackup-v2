@@ -1,0 +1,41 @@
+<app-auth-content>
+  <div class="app-title">
+    <div>
+      <h1>
+        <i class="fa fa-key"></i> RSA Keys
+      </h1>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+      <li class="breadcrumb-item">
+        <i class="fa fa-home fa-lg"></i>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="#">RSA KEY</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ส่วนฟอร์ม -->
+  <div class="tile-body">
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="control-label">RSA KEY *</label>
+
+        </div>
+        <textarea class="form-control" type="text" formControlName="rsakey" rows="10"
+          placeholder="กรุณากรอกข้อมูล"></textarea>
+
+      </div>
+      </div>
+
+      <hr>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+          <i class="fa fa-save"></i> บันทึกข้อมูล
+        </button>
+      </div>
+    </form>
+  </div>
+</app-auth-content>

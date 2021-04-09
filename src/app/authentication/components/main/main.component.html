@@ -1,0 +1,77 @@
+<app-auth-content>
+  <div class="app-title">
+    <div>
+      <h1>
+        <i class="fa fa-home"></i> หน้าหลัก
+      </h1>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+      <li class="breadcrumb-item">
+        <i class="fa fa-home fa-lg"></i>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="#">หน้าหลัก</a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="tile">
+    <!-- ส่วนหัว -->
+    <div class="tile-title-w-btn">
+      <h3 class="title">
+        <i class="fa fa-user"></i> ข้อมูลส่วนตัว
+      </h3>
+      <p>
+      </p>
+    </div>
+
+    <!-- ส่วนข้อมูลส่วนตัว -->
+    <div class="row">
+      <div class="col-sm-4">
+        <div *ngIf="UserLogin" class="app-sidebar__user">
+          <img *ngIf="UserLogin.image" class="img-fluid img-thumbnail" [src]="UserLogin.image" alt="User Image">
+          <img *ngIf="!UserLogin.image" class="img-fluid img-thumbnail" src="assets/images/no-image-profile.png"
+            alt="User Image">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <blockquote>
+          <h5><br></h5>
+          <h5>ชื่อผู้ใช้ : {{UserLogin.username}}</h5>
+          <h5><br>ชื่อ-นามสกุล : {{UserLogin.firstname}} {{UserLogin.lastname}}</h5>
+          <h5><br>อีเมลล์ : {{UserLogin.email}}</h5>
+          <h5><br>เบอร์โทรศัพท์ : {{UserLogin.telphone}}</h5>
+          <h5><br>Facebook : {{UserLogin.facebook}}</h5>
+          <h5><br>Line : {{UserLogin.line}}</h5>
+          <small><cite title="Source Title"> <i class="icon-map-marker"></i></cite></small>
+        </blockquote>
+        <p *ngIf="UserLogin.role == Role.Member">
+          <button (click)="onShowKey(UserLogin)" type="button" class="btn btn-primary icon-btn">
+              <i class="fa fa-key"></i> RSA KEY
+          </button>
+      </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ส่วนข้อมูลที่อยู่ -->
+    <div *ngIf="UserLogin.role == Role.Member" class="tile">
+      <h3>
+        <i class="fa fa-map"></i> สถานที่ติดตั้ง
+      </h3>
+        <div class="col-sm-4">
+          <blockquote>
+            <h5><br></h5>
+            <h5><br>ละติจูด : {{UserLogin.latitude}}</h5>
+            <h5><br>ลองจิจูด : {{UserLogin.longitude}}</h5>
+            <h5><br>ชื่อหน่วยงาน : {{UserLogin.organization}}</h5>
+            <h5><br>เลขที่ : {{UserLogin.num}}</h5>
+            <h5><br>ตำบล : {{UserLogin.subdistrict}}</h5>
+            <h5><br>อำเภอ : {{UserLogin.district}}</h5>
+            <h5><br>จังหวัด : {{UserLogin.province}}</h5>
+            <h5><br>รหัสไปรษณีย์ : {{UserLogin.zipcode}}</h5>
+          </blockquote>
+        </div>
+    </div>
+</app-auth-content>
